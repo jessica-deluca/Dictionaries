@@ -132,30 +132,23 @@ namespace Dictionaries
             zooAnimals.Add(userAnimalThree, 3);
             zooAnimals.Add(userAnimalFour, 4);
             zooAnimals.Add(userAnimalFive, 5);
-            zooAnimals.Add(userAnimalSix, 6);
+            zooAnimals.Add(userAnimalSix, 10);
             zooAnimals.Add(userAnimalSeven, 7);
             zooAnimals.Add(userAnimalEight, 8);
             zooAnimals.Add(userAnimalNine, 9);
-            zooAnimals.Add(userAnimalTen, 10);
+            zooAnimals.Add(userAnimalTen, 6);
 
             // Print the animal with the highest quantity to the console
+
+            string max = zooAnimals.Aggregate((l, r) => l.Value > r.Value ? l : r).Key; // don't know why this works
+            Console.WriteLine(max);
+
             // Remove the zoo animal with the lowest quantity using the Remove method.
-            
-            //Console.WriteLine(zooAnimals.Values.Max());
-            //Console.WriteLine(zooAnimals.Values.Min());
 
-            //Console.WriteLine(zooAnimals.Key(zooAnimals.Values.Max()));
+            string min = zooAnimals.Aggregate((l, r) => l.Value < r.Value ? l : r).Key; // don't know why this works
+            Console.WriteLine(min);
 
-           //oreach (KeyValuePair<string,int> animal in zooAnimals)
-            {
-                Console.WriteLine(            }
-
-            //{
-            //    Console.WriteLine(carOwnership.Key);
-            //    Console.WriteLine(carOwnership.Value);
-            //}
-
-            //zooAnimals.Remove();
+            zooAnimals.Remove(min);
 
         }
     }
